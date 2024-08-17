@@ -19,7 +19,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
 
 - Raspberry Pi OS
 - Python 3
-- Required Python libraries (installed via the `install_dependencies.sh` script)
+- Required Python libraries (installed via the `main.sh` script)
 
 ### Installation Steps
 
@@ -38,7 +38,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
     Execute the installation script to install all dependencies and set up the environment variable:
 
     ```bash
-    ./install_dependencies.sh
+    ./bash main.sh
     ```
 
 3. **Create a Systemd Service File:**
