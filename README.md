@@ -1,5 +1,4 @@
 
-Certainly! Here's the README.md without the references to creating the Python and installation scripts:
 
 Raspberry Pi 4: Touchscreen Deactivation and Fullscreen URL Display
 This project guides you through setting up a Raspberry Pi 4 to automatically disable the touchscreen and open a specified URL in fullscreen mode whenever the device boots. This setup is ideal for kiosk or display applications.
