@@ -28,29 +28,12 @@ Before you begin, ensure that the following software is installed on your Raspbe
     Clone the repository from GitHub to your Raspberry Pi:
 
     ```bash
-    git clone https://github.com/yourusername/your-repo.git
-    ```
-    Replace `https://github.com/yourusername/your-repo.git` with the actual URL of your GitHub repository.
-
-    Navigate into the cloned repository directory:
-
-    ```bash
-    cd your-repo
+    git clone https://github.com/OpenRoboticsGridHardware/DriverStationHub.git
     ```
 
-2. **Set Up the Scripts:**
 
-    Ensure that the Python script `fullscreen_browser.py` and the installation script `install_dependencies.sh` are in the cloned repository.
 
-3. **Make the Scripts Executable:**
-
-    Change the permissions of the scripts to make them executable:
-
-    ```bash
-    chmod +x /home/pi/your-repo/fullscreen_browser.py /home/pi/your-repo/install_dependencies.sh
-    ```
-
-4. **Run the Installation Script:**
+2. **Run the Installation Script:**
 
     Execute the installation script to install all dependencies and set up the environment variable:
 
@@ -58,7 +41,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
     ./install_dependencies.sh
     ```
 
-5. **Create a Systemd Service File:**
+3. **Create a Systemd Service File:**
 
     Create a `systemd` service file to run the Python script at startup:
 
@@ -76,7 +59,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
         After=network.target
 
         [Service]
-        ExecStart=/usr/bin/python3 /home/pi/your-repo/fullscreen_browser.py
+        ExecStart=/usr/bin/python3 /home/pi/your-repo/main.py
         WorkingDirectory=/home/pi/your-repo
         User=pi
         Environment=TARGET_URL=https://example.com
@@ -86,11 +69,11 @@ Before you begin, ensure that the following software is installed on your Raspbe
         WantedBy=multi-user.target
         ```
 
-        Replace `/home/pi/your-repo/fullscreen_browser.py` with the actual path to your Python script and `https://example.com` with your desired URL.
+        Replace `/home/pi/your-repo/main.py` with the actual path to your Python script and `https://example.com` with your desired URL.
 
     3. Save and close the file by pressing `CTRL + X`, then `Y`, and `Enter`.
 
-6. **Enable and Start the Service:**
+4. **Enable and Start the Service:**
 
     Enable and start the service to ensure it runs at boot:
 
@@ -99,7 +82,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
     sudo systemctl start fullscreen-browser.service
     ```
 
-7. **Reboot the Raspberry Pi:**
+5. **Reboot the Raspberry Pi:**
 
     Reboot your Raspberry Pi to test the setup:
 
@@ -107,7 +90,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
     sudo reboot
     ```
 
-8. **Customizing the URL:**
+6. **Customizing the URL:**
 
     To change the URL that is displayed:
 
@@ -125,11 +108,3 @@ Before you begin, ensure that the following software is installed on your Raspbe
         sudo systemctl daemon-reload
         sudo systemctl restart fullscreen-browser.service
         ```
-
-## Summary
-
-This setup ensures that your Raspberry Pi will automatically:
-- Disable the touchscreen input.
-- Open a web browser in fullscreen mode displaying a specified URL upon boot.
-
-Using `systemd` for managing the startup script provides greater control and robustness compared to other methods, making it suitable for production environments or kiosk setups.
