@@ -38,7 +38,7 @@ Before you begin, ensure that the following software is installed on your Raspbe
     Execute the installation script to install all dependencies and set up the environment variable:
 
     ```bash
-    ./bash main.sh
+    bash ./main.sh
     ```
 
 3. **Create a Systemd Service File:**
